@@ -1,0 +1,38 @@
+{% extends 'UnMask/main.html' %}
+
+{% block content %}
+
+<div class="container px-4 px-lg-5 h-100">
+  <div class="row gx-4 gx-lg-5 h-100 align-items-center">
+
+    <form method="POST" action="">
+
+      {% for message in messages %}
+
+      <div class="alert alert-danger" role="alert">
+        {{message}}
+      </div>
+  
+      {% endfor %}
+
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" name="username">
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password">
+      </div>
+
+      <button type="submit" class="btn btn-outline-primary">Login</button>
+      <a href="/register" class="btn btn-outline-secondary">Register</a>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
